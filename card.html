@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'outfit', italic;
+    }
+
+    body{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #212121;
+    }
+
+    h1{
+        color: white;
+        font-size: 70px;
+    }
+
+    .trilho{
+        width: 350px;
+        height: 150px;
+        background-color: #4b4b4b;
+        border-radius: 150px;
+        position: relative;
+        margin-top: 1%;
+        cursor: pointer;
+    }
+
+    .trilho .indicador{
+        width: 150px;
+        height: 150px;
+        background-color: black;
+        border-radius: 50%;
+        transform: scale(.9);
+        position: absolute;
+        left: 0;
+        transition: .5s;
+    }
+
+    .trilho.dark .indicador{
+        left: 200px;
+        background-color: #fff;
+    }
+
+    .trilho.dark{
+        background-color: #c3c3c3;
+    }
+
+    body.dark{
+        background-color: #e4e4e4;
+        transition: .5s;
+    }
+
+    h1.dark{
+        color: #212121;
+        transition: .1s;
+        font-size: 70px;
+    }
+
+    </style>
+</head>
+<body>
+
+    <h1 id="h1">Modo Escuro e Modo Claro</h1>
+    <div class="trilho" id="trilho">
+        <div class="indicador">
+
+        </div>
+    </div>
+</body>
+    <script>
+        const trilho = document.getElementById("trilho");
+        const h1 = document.getElementById("h1");
+        const body = document.querySelector('body');
+
+        trilho.addEventListener('click', () => {
+            trilho.classList.toggle('dark');
+            body.classList.toggle('dark');
+            h1.classList.toggle('dark');
+        })
+
+    </script>
+</html>
